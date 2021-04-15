@@ -4,6 +4,9 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>icons\icon.ico</ApplicationIcon>
+    <Authors>Andrei Bondariev, Vitalii Rudkin</Authors>
+    <Product>Train Dispetcher</Product>
   </PropertyGroup>
 
 </Project>
