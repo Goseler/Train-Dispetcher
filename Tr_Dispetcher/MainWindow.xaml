@@ -5,8 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tr_Dispetcher"
         mc:Ignorable="d"
-        Title="Train Dispetcher - Authorization" Height="450" Width="800" Background="LightBlue">
-    <Grid>
-
-    </Grid>
+        Title="Train Dispetcher - Authorization" Height="450" Width="800" Background="LightBlue" ResizeMode="NoResize">
+    <Grid/>
 </Window>
