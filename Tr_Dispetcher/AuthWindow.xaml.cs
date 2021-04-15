@@ -24,5 +24,15 @@ namespace Tr_Dispetcher
 		{
 			InitializeComponent();
 		}
+
+		private void buttonGuest_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void buttonAdmin_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
 	}
 }
