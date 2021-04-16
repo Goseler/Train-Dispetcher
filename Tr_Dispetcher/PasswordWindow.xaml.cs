@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,35 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Tr_Dispetcher
 {
 	/// <summary>
-	/// Interaction logic for AuthWindow.xaml
+	/// Логика взаимодействия для PasswordWindow.xaml
 	/// </summary>
-	public partial class AuthWindow : Window
+	public partial class PasswordWindow : Window
 	{
-		public AuthWindow()
+		public PasswordWindow()
 		{
 			InitializeComponent();
-			
-		}
-
-		private void ButtonGuest_Click(object sender, RoutedEventArgs e)
-		{
-
-		}
-
-		private void ButtonAdmin_Click(object sender, RoutedEventArgs e)
-		{
-			PasswordWindow passWin = new();
-			passWin.Owner = this;
-
-			passWin.Show();
-			this.Hide();
-			this.Show();
 		}
 	}
 }

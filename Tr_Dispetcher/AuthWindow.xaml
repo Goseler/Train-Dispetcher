@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tr_Dispetcher"
         mc:Ignorable="d"
-        Title="Train Dispetcher - Authorization" Height="450" Width="800" Background="LightBlue" ResizeMode="NoResize">
+        Title="Train Dispetcher - Authorization" Height="450" Width="800" Background="LightBlue" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -119,14 +119,14 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <TextBlock x:Name="textBlockAuth" Text="Авторизація" TextWrapping="Wrap" FontSize="48" FontWeight="Normal" HorizontalAlignment="Center" VerticalAlignment="Top" Height="65" Width="280" Margin="0,24,0,0"/>
-        <Button Style="{DynamicResource ButtonStyleGuest}" x:Name="buttonGuest" Margin="120,124,440,70" d:LayoutOverrides="VerticalAlignment" FontSize="36" VerticalContentAlignment="Bottom" Padding="1,1,1,20" Click="buttonGuest_Click" Background="MediumAquamarine" Cursor="Hand">
+        <TextBlock x:Name="TextBlockAuth" Text="Авторизація" TextWrapping="Wrap" FontSize="48" FontWeight="Normal" HorizontalAlignment="Center" VerticalAlignment="Top" Height="65" Width="280" Margin="0,24,0,0"/>
+        <Button Style="{DynamicResource ButtonStyleGuest}" x:Name="ButtonGuest" Margin="120,124,440,70" d:LayoutOverrides="VerticalAlignment" FontSize="36" VerticalContentAlignment="Bottom" Padding="1,1,1,20" Click="ButtonGuest_Click" Background="MediumAquamarine" Cursor="Hand">
             <StackPanel Orientation="Vertical">
                 <Image Image.Source="/Tr_Dispetcher;component/Resources/person.png" Height="140" Margin="0,0,0,0"/>
                 <TextBlock Text="Гість" Width="74"/>
             </StackPanel>
         </Button>
-        <Button Style="{DynamicResource ButtonStyleAdmin}" x:Name="buttonAdmin" Margin="440,124,120,70" d:LayoutOverrides="VerticalAlignment" FontSize="36" VerticalContentAlignment="Bottom" Padding="1,1,1,20" Click="buttonAdmin_Click" Background="PaleGoldenrod" Cursor="Hand">
+        <Button Style="{DynamicResource ButtonStyleAdmin}" x:Name="ButtonAdmin" Margin="440,124,120,70" d:LayoutOverrides="VerticalAlignment" FontSize="36" VerticalContentAlignment="Bottom" Padding="1,1,1,20" Click="ButtonAdmin_Click" Background="PaleGoldenrod" Cursor="Hand">
             <StackPanel Orientation="Vertical">
                 <Image Image.Source="/Tr_Dispetcher;component/Resources/person.png" Height="140" Margin="0,0,0,0"/>
                 <TextBlock Text="Робітник"/>
