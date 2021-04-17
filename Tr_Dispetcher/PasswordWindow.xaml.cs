@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,6 +23,21 @@ namespace Tr_Dispetcher
 		public PasswordWindow()
 		{
 			InitializeComponent();
+		}
+
+		private void PasswordBox_TextChanged(object sender, TextChangedEventArgs e)
+		{
+			
+		}
+
+		private void ButtonAcceptPass_Click(object sender, RoutedEventArgs e)
+		{
+			string password = "123456";
+			string enteredPass = PasswordBox.Password.ToString();
+			if (password != enteredPass)
+			{
+				MessageBox.Show("Невірний пароль! Спробуйте ще раз.", "Помилка авторизації");
+			}
 		}
 	}
 }

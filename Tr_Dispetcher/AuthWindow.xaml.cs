@@ -34,12 +34,11 @@ namespace Tr_Dispetcher
 
 		private void ButtonAdmin_Click(object sender, RoutedEventArgs e)
 		{
-			PasswordWindow passWin = new();
-			passWin.Owner = this;
+			PasswordWindow passWin = new PasswordWindow();
+			//passWin.Owner = this;
 
 			passWin.Show();
-			this.Hide();
-			this.Show();
+			this.Close();
 		}
 	}
 }
