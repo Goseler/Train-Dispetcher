@@ -36,8 +36,15 @@ namespace Tr_Dispetcher
 			string enteredPass = PasswordBox.Password.ToString();
 			if (password != enteredPass)
 			{
-				MessageBox.Show("Невірний пароль! Спробуйте ще раз.", "Помилка авторизації");
+				MessageBox.Show("Невірний пароль! Спробуйте ще раз.", "Помилка авторизації", MessageBoxButton.OK,MessageBoxImage.Error);
 			}
+		}
+
+		private void ButtonBack_Click(object sender, RoutedEventArgs e)
+		{
+			AuthWindow authWin = new AuthWindow();
+			this.Close();
+			authWin.Show();
 		}
 	}
 }

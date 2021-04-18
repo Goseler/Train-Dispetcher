@@ -24,7 +24,6 @@ namespace Tr_Dispetcher
 		public AuthWindow()
 		{
 			InitializeComponent();
-			
 		}
 
 		private void ButtonGuest_Click(object sender, RoutedEventArgs e)
@@ -35,10 +34,8 @@ namespace Tr_Dispetcher
 		private void ButtonAdmin_Click(object sender, RoutedEventArgs e)
 		{
 			PasswordWindow passWin = new PasswordWindow();
-			//passWin.Owner = this;
-
-			passWin.Show();
 			this.Close();
+			passWin.Show();
 		}
 	}
 }
