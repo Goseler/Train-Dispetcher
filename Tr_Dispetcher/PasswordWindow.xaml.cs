@@ -25,21 +25,25 @@ namespace Tr_Dispetcher
 			InitializeComponent();
 		}
 
-		private void PasswordBox_TextChanged(object sender, TextChangedEventArgs e)
-		{
-			
-		}
-
+		//Проверка пароля и переход в главное окно
 		private void ButtonAcceptPass_Click(object sender, RoutedEventArgs e)
 		{
-			string password = "123456";
+			string password = "123456"; // пароль
 			string enteredPass = PasswordBox.Password.ToString();
 			if (password != enteredPass)
 			{
 				MessageBox.Show("Невірний пароль! Спробуйте ще раз.", "Помилка авторизації", MessageBoxButton.OK,MessageBoxImage.Error);
 			}
+			else
+			{
+				//Переход в главное окно с параметром сотрудника
+				MainForm mainWindow = new MainForm(true);
+				this.Close();
+				mainWindow.Show();
+			}
 		}
 
+		//Функционал кнопки НАЗАД
 		private void ButtonBack_Click(object sender, RoutedEventArgs e)
 		{
 			AuthWindow authWin = new AuthWindow();

@@ -26,11 +26,15 @@ namespace Tr_Dispetcher
 			InitializeComponent();
 		}
 
+		//Переход в главное окно с параметром гостя
 		private void ButtonGuest_Click(object sender, RoutedEventArgs e)
 		{
-
+			MainForm mainWindow = new MainForm(false);
+			this.Close();
+			mainWindow.Show();
 		}
 
+		//Переход в окно авторизации сотрудника
 		private void ButtonAdmin_Click(object sender, RoutedEventArgs e)
 		{
 			PasswordWindow passWin = new PasswordWindow();
