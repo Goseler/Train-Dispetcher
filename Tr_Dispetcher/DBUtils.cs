@@ -22,7 +22,7 @@ namespace Tr_Dispetcher
 
 			return DBSQLServerUtils.GetDBConnection(server, catalog, user_id, password);
 		}
-		//Функция считывания всех данных с БД
+		//Функция считывания              всех данных с БД
 		internal static void QueryTrip(SqlConnection conn)
 		{
 			string sql = "select number, station, dept_time, travel_time, tickets from trips_info";
