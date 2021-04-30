@@ -77,9 +77,16 @@ namespace Tr_Dispetcher
 			//using вместо метода Dispose
 			using (SqlConnection conn = DBUtils.GetDBConnection())
 			{
-				conn.Open();
-				DBUtils.QueryTrip(conn);
-				conn.Close();
+				try
+				{
+					conn.Open();
+					DBUtils.QueryTrip(conn);
+					conn.Close();
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show(ex.Message);
+				}
 				//conn.Dispose();
 			}
 		}

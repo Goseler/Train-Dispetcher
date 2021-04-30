@@ -13,17 +13,18 @@ namespace Tr_Dispetcher
 		//Данные нужные для поключения к БД
 		public static SqlConnection GetDBConnection()
 		{
-			//Data Source=DESKTOP-BQA1TPO\SQLEXPRESS;Initial Catalog=dispetcher_db;User ID=remote_user;Password=ru
+			// Data Source = "tcp:DESKTOP-BQA1TPO\SQLEXPRESS, 49172"; Initial Catalog = dispetcher_db; User ID = remote_user;Password = ru
+			// Data Source = "tcp:DESKTOP-BQA1TPO\SQLEXPRESS, 49172";Initial Catalog = dispetcher_db;User ID = sa;Password = sa
 
-			string server = "DESKTOP-BQA1TPO\\SQLEXPRESS";
+			string server = "tcp:DESKTOP-BQA1TPO\\SQLEXPRESS, 49172";
 			string catalog = "dispetcher_db";
 			string user_id = "remote_user";
 			string password = "ru";
 
 			return DBSQLServerUtils.GetDBConnection(server, catalog, user_id, password);
 		}
-		//Функция считывания              всех данных с БД
-		internal static void QueryTrip(SqlConnection conn)
+		//Функция считывания всех данных с БД
+		public static void QueryTrip(SqlConnection conn)
 		{
 			string sql = "select number, station, dept_time, travel_time, tickets from trips_info";
 
