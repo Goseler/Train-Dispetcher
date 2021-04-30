@@ -15,11 +15,12 @@ namespace Tr_Dispetcher
 		{
 			// Data Source = "tcp:DESKTOP-BQA1TPO\SQLEXPRESS, 49172"; Initial Catalog = dispetcher_db; User ID = remote_user;Password = ru
 			// Data Source = "tcp:DESKTOP-BQA1TPO\SQLEXPRESS, 49172";Initial Catalog = dispetcher_db;User ID = sa;Password = sa
+			// Data Source = trdispetcher.mssql.somee.com;Initial Catalog = trdispetcher;User ID = goseler_SQLLogin_1;Password = 2yqshnjdhq
 
-			string server = "tcp:DESKTOP-BQA1TPO\\SQLEXPRESS, 49172";
-			string catalog = "dispetcher_db";
-			string user_id = "remote_user";
-			string password = "ru";
+			string server = "trdispetcher.mssql.somee.com";
+			string catalog = "trdispetcher";
+			string user_id = "goseler_SQLLogin_1";
+			string password = "2yqshnjdhq";
 
 			return DBSQLServerUtils.GetDBConnection(server, catalog, user_id, password);
 		}
