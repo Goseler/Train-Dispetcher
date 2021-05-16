@@ -292,7 +292,12 @@
     <Grid>
         <DataGrid x:Name="TripsInfoGrid" Margin="20,144,20,20"/>
         <ComboBox Style="{DynamicResource ComboBoxStyle1}" x:Name="CityBox" Margin="20,20,640,500" Padding="10,9,0,0" MaxDropDownHeight="110" FontSize="16" Width="{Binding }"/>
-        <Button x:Name="button" Content="Button" Margin="230,20,375,480" d:LayoutOverrides="HorizontalAlignment" Click="button_Click"/>
+        <Button x:Name="button" Content="Button" Margin="230,20,479,500" Click="button_Click"/>
+        <Button x:Name="edit" Content="edit" HorizontalAlignment="Left" Margin="390,37,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Click="Button_Click_2"/>
+        <Button x:Name="add" Content="add" HorizontalAlignment="Left" Margin="465,37,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Click="Button_Click_1"/>
+        <Button x:Name="delete" Content="delete" HorizontalAlignment="Left" Margin="552,37,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Click="Button_Click_3"/>
+        <Button x:Name="tickets" Content="tickets" HorizontalAlignment="Left" Margin="647,37,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Click="Button_Click_4"/>
+        <Button x:Name="save" Content="save" HorizontalAlignment="Left" Margin="702,37,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Click="Button_Click_5"/>
 
     </Grid>
 </Window>

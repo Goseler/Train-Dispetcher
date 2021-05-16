@@ -1,0 +1,24 @@
+﻿<Window x:Class="Tr_Dispetcher.AddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tr_Dispetcher"
+        mc:Ignorable="d"
+        Title="AddWindow" Height="160" Width="695" Background="LightBlue" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid MinWidth="1" Width="695" Height="160">
+        <Label Content="Номер &#xA;потяга" HorizontalAlignment="Left" Margin="19,16,0,101" Width="47" Background="#FFB8B8B8" HorizontalContentAlignment="Stretch"/>
+        <Label Content="Станція призначення" HorizontalAlignment="Left" Margin="92,0,0,101" Width="126" Background="#FFB8B8B8" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" VerticalAlignment="Bottom" Height="43"/>
+        <Label Content="Час відправлення" HorizontalAlignment="Left" Margin="244,0,0,101" Width="126" Background="#FFB8B8B8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom" Height="43"/>
+        <Label Content="Час у дорозі" HorizontalAlignment="Left" Margin="386,0,0,101" Width="126" Background="#FFB8B8B8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom" Height="43"/>
+        <Label Content="Кількість квитків" HorizontalAlignment="Left" Margin="526,0,0,101" Width="126" Background="#FFB8B8B8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom" Height="43"/>
+        <Button x:Name="add" Content="Додати" Margin="404,90,0,46" HorizontalAlignment="Left" Width="108" Click="Button_Click"/>
+        <TextBox HorizontalAlignment="Left" Margin="19,0,0,0" Text="000" TextWrapping="Wrap" VerticalAlignment="Center" Width="47"/>
+        <TextBox HorizontalAlignment="Left" Margin="92,0,0,0" Text="Київ-Пас" TextWrapping="Wrap" VerticalAlignment="Center" Width="126"/>
+        <TextBox HorizontalAlignment="Left" Margin="244,0,0,0" Text="00:00" TextWrapping="Wrap" VerticalAlignment="Center" Width="126"/>
+        <TextBox HorizontalAlignment="Left" Margin="386,0,0,0" Text="00:00" TextWrapping="Wrap" VerticalAlignment="Center" Width="126"/>
+        <TextBox HorizontalAlignment="Left" Margin="526,0,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="126"/>
+        <Button Content="Додати ще" HorizontalAlignment="Left" Margin="564,90,0,0" VerticalAlignment="Top" Click="Button_Click_1" Width="88" Height="24"/>
+
+    </Grid>
+</Window>

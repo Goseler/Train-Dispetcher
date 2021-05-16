@@ -40,6 +40,9 @@ namespace Tr_Dispetcher
 			else
 			{
 				this.Title = "Train Dispetcher - Гість";
+				edit.Visibility = Visibility.Hidden;
+				add.Visibility = Visibility.Hidden;
+				delete.Visibility = Visibility.Hidden;
 			}
 		}
 
@@ -90,5 +93,34 @@ namespace Tr_Dispetcher
 				//conn.Dispose();
 			}
 		}
-	}
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+			AddWindow addWin = new AddWindow();
+			addWin.Show();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+			EditWindow editWin = new EditWindow();
+			editWin.Show();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+			DeleteWindow dltWin = new DeleteWindow();
+			dltWin.Show();
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+			TicketWindow tickWin = new TicketWindow();
+			tickWin.Show();
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+
+        }
+    }
 }
