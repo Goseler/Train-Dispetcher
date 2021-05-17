@@ -40,9 +40,9 @@ namespace Tr_Dispetcher
 			else
 			{
 				this.Title = "Train Dispetcher - Гість";
-				edit.Visibility = Visibility.Hidden;
-				add.Visibility = Visibility.Hidden;
-				delete.Visibility = Visibility.Hidden;
+				ButtonEdit.Visibility = Visibility.Hidden;
+				ButtonAdd.Visibility = Visibility.Hidden;
+				ButtonDelete.Visibility = Visibility.Hidden;
 			}
 		}
 
