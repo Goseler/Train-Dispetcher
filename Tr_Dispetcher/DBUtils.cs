@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -25,7 +26,7 @@ namespace Tr_Dispetcher
 			return DBSQLServerUtils.GetDBConnection(server, catalog, user_id, password);
 		}
 		//Функция считывания всех данных с БД
-		public static void QueryTrip(SqlConnection conn)
+		public static void QueryTrip(SqlConnection conn, ref DataTable tripsTable)
 		{
 			string sql = "select number, station, dept_time, travel_time, tickets from trips_info";
 
@@ -53,9 +54,10 @@ namespace Tr_Dispetcher
 						byte ticketsIndex = Convert.ToByte(reader.GetOrdinal("tickets"));
 						int tickets = Convert.ToInt32(reader.GetValue(ticketsIndex));
 
+						tripsTable.Rows.Add(number, station, dept_time, travel_time, tickets);
 						//Проверочный бокс для просмотра всех данных
-						MessageBox.Show(
-							$"Number: {number}\nStation: {station}\nDept time: {dept_time}\nTravel time: {travel_time}\nTickets: {tickets}");
+						//MessageBox.Show(
+							//$"Number: {number}\nStation: {station}\nDept time: {dept_time}\nTravel time: {travel_time}\nTickets: {tickets}");
 					}
 				}
 			}

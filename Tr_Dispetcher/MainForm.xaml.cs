@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Threading;
 using System.Data.Common;
+using System.Data;
 
 namespace Tr_Dispetcher
 {
@@ -23,6 +24,8 @@ namespace Tr_Dispetcher
 	public partial class MainForm : Window
 	{
 		private bool _isAdmin;
+		private List<ClassTrip> AllTrips = new List<ClassTrip>();
+		private DataTable dt = new DataTable();
 		public MainForm()
 		{
 			InitializeComponent();
@@ -60,23 +63,22 @@ namespace Tr_Dispetcher
 				{
 					MessageBox.Show(ex.Message);
 				}
-				//conn.Dispose();
 			}
 			foreach (string i in cities)
 			{
 				CityBox.Items.Add(i);
 			}
+
+			//инициализация дататейбл
+			dt.Columns.Add("Номер потягу");
+			dt.Columns.Add("Станція призначення");
+			dt.Columns.Add("Час відправлення");
+			dt.Columns.Add("Час прибуття");
+			dt.Columns.Add("К-ть квитків");
 		}
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
-			
-
-			//CityBox.Items.Add("Lviv");
-			//CityBox.Items.Add("Kharkiv");
-			//CityBox.Items.Add("Sumy");
-
-
 			//Подключение к БД
 			//SqlConnection conn = DBUtils.GetDBConnection();
 
@@ -107,7 +109,7 @@ namespace Tr_Dispetcher
 				try
 				{
 					conn.Open();
-					DBUtils.QueryTrip(conn);
+					//DBUtils.QueryTrip(conn);
 					conn.Close();
 				}
 				catch (Exception ex)
@@ -146,5 +148,25 @@ namespace Tr_Dispetcher
         {
 
         }
-    }
+
+		private void TripsInfoGrid_Loaded(object sender, RoutedEventArgs e)
+		{
+			//Заполнении грида со всеми поездами
+			using (SqlConnection conn = DBUtils.GetDBConnection())
+			{
+				try
+				{
+					conn.Open();
+					DBUtils.QueryTrip(conn, ref dt);
+					conn.Close();
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show(ex.Message);
+				}
+			}
+			
+			TripsInfoGrid.ItemsSource = dt.DefaultView;
+		}
+	}
 }

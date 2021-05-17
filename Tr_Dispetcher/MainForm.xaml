@@ -290,7 +290,7 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <DataGrid x:Name="TripsInfoGrid" Margin="20,144,20,20"/>
+        <DataGrid x:Name="TripsInfoGrid" Margin="20,144,20,20" Loaded="TripsInfoGrid_Loaded" AutoGenerateColumns="True" IsReadOnly="True" ColumnWidth="*" />
         <ComboBox Style="{DynamicResource ComboBoxStyle1}" x:Name="CityBox" Margin="20,20,640,500" Padding="10,9,0,0" MaxDropDownHeight="110" FontSize="16" Width="{Binding }"/>
         <Button x:Name="button" Content="Button" Margin="689,75,20,445" Click="button_Click"/>
         <Button x:Name="ButtonEdit" Content="edit" HorizontalAlignment="Left" Margin="390,37,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Click="Button_Click_2"/>
