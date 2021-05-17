@@ -61,5 +61,30 @@ namespace Tr_Dispetcher
 			}
 
 		}
+
+		public static void QueryCity(SqlConnection conn, ref List<string> cities)
+		{
+			string sql = "select station from trips_info";
+
+			SqlCommand cmd = new SqlCommand(sql, conn);
+
+			using (SqlDataReader reader = cmd.ExecuteReader())
+			{
+				if (reader.HasRows)
+				{
+					while (reader.Read())
+					{
+						byte stationIndex = Convert.ToByte(reader.GetOrdinal("station"));
+						string station = reader.GetString(stationIndex);
+						cities.Add(station);
+
+						//Проверочный бокс для просмотра всех данных
+						//MessageBox.Show(
+							//$"Number: {number}\nStation: {station}\nDept time: {dept_time}\nTravel time: {travel_time}\nTickets: {tickets}");
+					}
+				}
+			}
+
+		}
 	}
 }

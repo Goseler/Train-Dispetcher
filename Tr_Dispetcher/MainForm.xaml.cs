@@ -44,18 +44,42 @@ namespace Tr_Dispetcher
 				ButtonAdd.Visibility = Visibility.Hidden;
 				ButtonDelete.Visibility = Visibility.Hidden;
 			}
+
+			// При инициализации окна подгружаются города
+			List<string> cities = new List<string>();
+
+			using (SqlConnection conn = DBUtils.GetDBConnection())
+			{
+				try
+				{
+					conn.Open();
+					DBUtils.QueryCity(conn, ref cities);
+					conn.Close();
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show(ex.Message);
+				}
+				//conn.Dispose();
+			}
+			foreach (string i in cities)
+			{
+				CityBox.Items.Add(i);
+			}
 		}
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
-			//Переделать и брать города из БД
-			CityBox.Items.Add("Lviv");
-			CityBox.Items.Add("Kharkiv");
-			CityBox.Items.Add("Sumy");
+			
+
+			//CityBox.Items.Add("Lviv");
+			//CityBox.Items.Add("Kharkiv");
+			//CityBox.Items.Add("Sumy");
+
 
 			//Подключение к БД
-			SqlConnection conn = DBUtils.GetDBConnection();
-			
+			//SqlConnection conn = DBUtils.GetDBConnection();
+
 			/*try
 			{
 				conn.Open();
