@@ -168,7 +168,20 @@ namespace Tr_Dispetcher
 
 		public static int UpdateDataTrip(SqlConnection conn, ClassTrip ins_trip)
 		{
-			string sql = $"UPDATE trips_info SET";
+			string sql = $"UPDATE trips_info SET station=@station, dept_time=@dept_time, travel_time=@travel_time, tickets=@tickets WHERE number=@number";
+
+			SqlCommand cmd = new SqlCommand();
+			cmd.Connection = conn;
+			cmd.CommandText = sql;
+
+			cmd.Parameters.Add("@number", SqlDbType.SmallInt).Value = ins_trip.Number;
+			cmd.Parameters.Add("@station", SqlDbType.NVarChar).Value = ins_trip.Station;
+			cmd.Parameters.Add("@dept_time", SqlDbType.Time).Value = ins_trip.Dept_time;
+			cmd.Parameters.Add("@travel_time", SqlDbType.Time).Value = ins_trip.Travel_time;
+			cmd.Parameters.Add("@number", SqlDbType.Int).Value = ins_trip.Tickets;
+
+			int rowCount = cmd.ExecuteNonQuery();
+			return rowCount;
 		}
 
 
