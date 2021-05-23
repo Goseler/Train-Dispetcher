@@ -170,24 +170,28 @@ namespace Tr_Dispetcher
 		{
 			AddWindow addWin = new AddWindow();
 			addWin.ShowDialog();
+			Update_Data();
 		}
 
 		private void ButtonEdit_Click_2(object sender, RoutedEventArgs e)
 		{
 			EditWindow editWin = new EditWindow();
 			editWin.ShowDialog();
+			Update_Data();
 		}
 
 		private void ButtonDelete_Click_3(object sender, RoutedEventArgs e)
 		{
 			DeleteWindow dltWin = new DeleteWindow();
 			dltWin.ShowDialog();
+			Update_Data();
 		}
 
 		private void ButtonTicket_Click_4(object sender, RoutedEventArgs e)
 		{
 			TicketWindow tickWin = new TicketWindow();
 			tickWin.ShowDialog();
+			Update_Data();
 		}
 
 		private void ButtonSave_Click_5(object sender, RoutedEventArgs e)
