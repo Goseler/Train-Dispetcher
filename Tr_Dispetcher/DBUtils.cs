@@ -160,7 +160,7 @@ namespace Tr_Dispetcher
 			cmd.Parameters.Add("@station_param", SqlDbType.NVarChar).Value = ins_trip.Station;
 			cmd.Parameters.Add("@dept_time_param", SqlDbType.Time).Value = ins_trip.Dept_time;
 			cmd.Parameters.Add("@travel_time_param", SqlDbType.Time).Value = ins_trip.Travel_time;
-			cmd.Parameters.Add("@number_param", SqlDbType.Int).Value = ins_trip.Tickets;
+			cmd.Parameters.Add("@tickets_param", SqlDbType.Int).Value = ins_trip.Tickets;
 
 			int rowCount = cmd.ExecuteNonQuery();
 			return rowCount;
@@ -178,7 +178,7 @@ namespace Tr_Dispetcher
 			cmd.Parameters.Add("@station_param", SqlDbType.NVarChar).Value = ins_trip.Station;
 			cmd.Parameters.Add("@dept_time_param", SqlDbType.Time).Value = ins_trip.Dept_time;
 			cmd.Parameters.Add("@travel_time_param", SqlDbType.Time).Value = ins_trip.Travel_time;
-			cmd.Parameters.Add("@number_param", SqlDbType.Int).Value = ins_trip.Tickets;
+			cmd.Parameters.Add("@tickets_param", SqlDbType.Int).Value = ins_trip.Tickets;
 
 			int rowCount = cmd.ExecuteNonQuery();
 			return rowCount;
