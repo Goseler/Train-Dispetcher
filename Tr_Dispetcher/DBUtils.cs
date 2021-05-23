@@ -27,7 +27,7 @@ namespace Tr_Dispetcher
 		{
 			tripsTable.Rows.Clear();
 
-			string sql = "select number, station, dept_time, travel_time, tickets from trips_info";
+			string sql = "SELECT number, station, dept_time, travel_time, tickets FROM trips_info";
 
 			SqlCommand cmd = new SqlCommand(sql, conn);
 
@@ -76,22 +76,22 @@ namespace Tr_Dispetcher
 
 				if (selected_hour_b == "" || selected_hour_b == "00")
 				{
-					sql = $"select number, station, dept_time, travel_time, tickets from trips_info where dept_time >= '{selected_hour_a}:00' and dept_time <= '23:59'";
+					sql = $"SELECT number, station, dept_time, travel_time, tickets FROM trips_info WHERE dept_time >= '{selected_hour_a}:00' AND dept_time <= '23:59'";
 				}
 				else
 				{
-					sql = $"select number, station, dept_time, travel_time, tickets from trips_info where dept_time >= '{selected_hour_a}:00' and dept_time <= '{selected_hour_b}:00'";
+					sql = $"SELECT number, station, dept_time, travel_time, tickets FROM trips_info WHERE dept_time >= '{selected_hour_a}:00' AND dept_time <= '{selected_hour_b}:00'";
 				}
 			}
 			else
 			{
 				if (selected_hour_b == "" || selected_hour_b == "00")
 				{
-					sql = $"select number, station, dept_time, travel_time, tickets from trips_info where station = '{selected_city}' and dept_time >= '{selected_hour_a}:00' and dept_time <= '23:59'";
+					sql = $"SELECT number, station, dept_time, travel_time, tickets FROM trips_info WHERE station = '{selected_city}' AND dept_time >= '{selected_hour_a}:00' AND dept_time <= '23:59'";
 				}
 				else
 				{
-					sql = $"select number, station, dept_time, travel_time, tickets from trips_info where station = '{selected_city}' and dept_time >= '{selected_hour_a}:00' and dept_time <= '{selected_hour_b}:00'";
+					sql = $"SELECT number, station, dept_time, travel_time, tickets FROM trips_info WHERE station = '{selected_city}' AND dept_time >= '{selected_hour_a}:00' AND dept_time <= '{selected_hour_b}:00'";
 				}
 			}
 
@@ -130,7 +130,7 @@ namespace Tr_Dispetcher
 			cities.Clear();
 			cities.Add("");
 
-			string sql = "select distinct station from trips_info order by station asc";
+			string sql = "SELECT DISTINCT station FROM trips_info ORDER BY station ASC";
 
 			SqlCommand cmd = new SqlCommand(sql, conn);
 
@@ -149,9 +149,9 @@ namespace Tr_Dispetcher
 
 		}
 
-		public static int InsertDataTrip(SqlConnection conn, ClassTrip ins_trip) 
+		public static int InsertDataTrip(SqlConnection conn, ClassTrip ins_trip)
 		{
-			string sql = $"insert into trips_info(number, station, dept_time, travel_time, tickets) values (@number, @station, @dept_time, @travel_time, @tickets)";
+			string sql = $"INSERT INTO trips_info(number, station, dept_time, travel_time, tickets) VALUES (@number, @station, @dept_time, @travel_time, @tickets)";
 			
 			SqlCommand cmd = conn.CreateCommand();
 			cmd.CommandText = sql;
@@ -165,7 +165,13 @@ namespace Tr_Dispetcher
 			int rowCount = cmd.ExecuteNonQuery();
 			return rowCount;
 		}
-		
+
+		public static int UpdateDataTrip(SqlConnection conn, ClassTrip ins_trip)
+		{
+			string sql = $"UPDATE trips_info SET";
+		}
+
+
 	}
 }
 
