@@ -166,31 +166,31 @@ namespace Tr_Dispetcher
 			}
 		}
 
-		private void Button_Click_1(object sender, RoutedEventArgs e)
+		private void ButtonAdd_Click_1(object sender, RoutedEventArgs e)
 		{
 			AddWindow addWin = new AddWindow();
 			addWin.ShowDialog();
 		}
 
-		private void Button_Click_2(object sender, RoutedEventArgs e)
+		private void ButtonEdit_Click_2(object sender, RoutedEventArgs e)
 		{
 			EditWindow editWin = new EditWindow();
 			editWin.ShowDialog();
 		}
 
-		private void Button_Click_3(object sender, RoutedEventArgs e)
+		private void ButtonDelete_Click_3(object sender, RoutedEventArgs e)
 		{
 			DeleteWindow dltWin = new DeleteWindow();
 			dltWin.ShowDialog();
 		}
 
-		private void Button_Click_4(object sender, RoutedEventArgs e)
+		private void ButtonTicket_Click_4(object sender, RoutedEventArgs e)
 		{
 			TicketWindow tickWin = new TicketWindow();
 			tickWin.ShowDialog();
 		}
 
-		private void Button_Click_5(object sender, RoutedEventArgs e)
+		private void ButtonSave_Click_5(object sender, RoutedEventArgs e)
 		{
 
 		}
