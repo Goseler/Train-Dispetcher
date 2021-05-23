@@ -27,7 +27,7 @@ namespace Tr_Dispetcher
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            int numb = Convert.ToUInt16(Number.Text);
+            int numb = Convert.ToInt32(Number.Text);
             if (numb <= 0)
             {
                 MessageBox.Show("Номер рейсу повинен бути додатнім");

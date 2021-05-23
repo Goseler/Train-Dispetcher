@@ -37,12 +37,15 @@ namespace Tr_Dispetcher
             int tick = Convert.ToInt32(tickets.Text);
             try
             {
-                if (numb <= 0 || Convert.ToInt32(arr[0]) < 0 || Convert.ToInt32(arr[0]) > 23 || tick < 0 || Convert.ToInt32(mas[0]) < 0 || Convert.ToInt32(mas[1]) < 0 || Convert.ToInt32(arr[1]) < 0 || Convert.ToInt32(arr[1]) > 23)
+                if (numb <= 0 || Convert.ToInt32(arr[0]) < 0 || Convert.ToInt32(arr[0]) > 23 || tick < 0 || Convert.ToInt32(mas[0]) < 0 || Convert.ToInt32(mas[1]) < 0 || Convert.ToInt32(arr[1]) < 0 || Convert.ToInt32(arr[1]) > 59 || Convert.ToInt32(mas[1]) > 59)
                     MessageBox.Show("Номер повинен бути більшим за нуль\nЧас відправлення та прибуття повинні бути більшими за нуль та менші 24\nКількість квитків повинна бути додатньою\nЧас в дорозі повинен бути додатнім \nВведіть коректні дані", "Некоректні вхідні дані", MessageBoxButton.OK, MessageBoxImage.Warning);
                 else
                 {
                     TimeSpan time_of_dept = Convert.ToDateTime(dept_time).TimeOfDay;
-                    TimeSpan time_of_travel = Convert.ToDateTime(travel_time).TimeOfDay;
+                    TimeSpan time_of_travel = TimeSpan.FromHours(
+                Convert.ToDouble(ttime.Split(':')[0])).
+              Add(TimeSpan.FromMinutes(
+                Convert.ToDouble((ttime.Split(':')[1]))));
                     ClassTrip trip = new ClassTrip(Convert.ToUInt16(numb), stat, time_of_dept, time_of_travel, tick);
                     using (SqlConnection conn = DBUtils.GetDBConnection())
                     {
@@ -69,6 +72,12 @@ namespace Tr_Dispetcher
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            /*string span = "23:90";
+            TimeSpan ts = TimeSpan.FromHours(
+                Convert.ToDouble(span.Split(':')[0])).
+              Add(TimeSpan.FromMinutes(
+                Convert.ToDouble((span.Split(':')[1]))));
+            MessageBox.Show(ts.ToString());*/
             ReadData(number.Text, station.Text, dept_time.Text, trav_time.Text, tickets.Text);
             number.Text = "000";
             station.Text = "Kiyv";
