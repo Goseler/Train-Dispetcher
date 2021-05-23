@@ -1,20 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Threading;
-using System.Data.Common;
 using System.Data;
+using System.Data.SqlClient;
+using System.Windows;
 
 namespace Tr_Dispetcher
 {
@@ -24,8 +12,8 @@ namespace Tr_Dispetcher
 	public partial class MainForm : Window
 	{
 		private bool _isAdmin;
-		private List<ClassTrip> AllTrips = new List<ClassTrip>();
 		private DataTable dt = new DataTable();
+		private List<string> cities = new List<string>();
 		public MainForm()
 		{
 			InitializeComponent();
@@ -48,11 +36,39 @@ namespace Tr_Dispetcher
 				ButtonDelete.Visibility = Visibility.Hidden;
 			}
 
-			// При инициализации окна подгружаются города
-			List<string> cities = new List<string>();
+			// Инициализация дататейбл
+			dt.Columns.Add("Номер потягу", typeof(UInt16));
+			dt.Columns.Add("Станція призначення", typeof(String));
+			dt.Columns.Add("Час відправлення", typeof(TimeSpan));
+			dt.Columns.Add("Час у дорозі", typeof(TimeSpan));
+			dt.Columns.Add("К-ть квитків", typeof(Int32));
 
+
+			// Обновление данніх
+			Update_Data();
+
+			// Инициализация комбо-боксов с часами и минутами
+			for (int i = 0; i < 24; i++)
+			{
+				if (i > 9)
+				{
+					HoursBoxA.Items.Add(i);
+					HoursBoxB.Items.Add(i);
+				}
+				else
+				{
+					HoursBoxA.Items.Add("0" + i.ToString());
+					HoursBoxB.Items.Add("0" + i.ToString());
+				}
+			}
+		}
+
+		private void Update_Data()
+		{
+			// Подгрузка городов из БД
 			using (SqlConnection conn = DBUtils.GetDBConnection())
 			{
+				CityBox.Items.Clear();
 				try
 				{
 					conn.Open();
@@ -69,87 +85,11 @@ namespace Tr_Dispetcher
 				CityBox.Items.Add(i);
 			}
 
-			//инициализация дататейбл
-			dt.Columns.Add("Номер потягу");
-			dt.Columns.Add("Станція призначення");
-			dt.Columns.Add("Час відправлення");
-			dt.Columns.Add("Час прибуття");
-			dt.Columns.Add("К-ть квитків");
+			// Подгрузка всех данных из БД
+			Update_DataTable();
 		}
 
-		private void Window_Loaded(object sender, RoutedEventArgs e)
-		{
-			//Подключение к БД
-			//SqlConnection conn = DBUtils.GetDBConnection();
-
-			/*try
-			{
-				conn.Open();
-				//MessageBox.Show("Connection successful!");
-			}
-			catch (Exception)
-			{
-				MessageBox.Show("На жаль доступ до даних призупинено,\n зверніться до адміністратора", "Помилка доступу до даних", MessageBoxButton.OK, MessageBoxImage.Error);
-				AuthWindow authWin = new AuthWindow();
-				this.Close();
-				authWin.Show();
-			}
-			finally
-			{
-				conn.Close();
-				conn.Dispose();
-			}*/// расскоментить на случай считывание всех данных при загрузке окна
-		}
-
-		private void button_Click(object sender, RoutedEventArgs e)
-		{
-			//using вместо метода Dispose
-			using (SqlConnection conn = DBUtils.GetDBConnection())
-			{
-				try
-				{
-					conn.Open();
-					//DBUtils.QueryTrip(conn);
-					conn.Close();
-				}
-				catch (Exception ex)
-				{
-					MessageBox.Show(ex.Message);
-				}
-				//conn.Dispose();
-			}
-		}
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-			AddWindow addWin = new AddWindow();
-			addWin.Show();
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-			EditWindow editWin = new EditWindow();
-			editWin.Show();
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-			DeleteWindow dltWin = new DeleteWindow();
-			dltWin.Show();
-        }
-
-        private void Button_Click_4(object sender, RoutedEventArgs e)
-        {
-			TicketWindow tickWin = new TicketWindow();
-			tickWin.Show();
-        }
-
-        private void Button_Click_5(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-		private void TripsInfoGrid_Loaded(object sender, RoutedEventArgs e)
+		private void Update_DataTable()
 		{
 			//Заполнении грида со всеми поездами
 			using (SqlConnection conn = DBUtils.GetDBConnection())
@@ -165,8 +105,92 @@ namespace Tr_Dispetcher
 					MessageBox.Show(ex.Message);
 				}
 			}
-			
 			TripsInfoGrid.ItemsSource = dt.DefaultView;
+		}
+
+		private void ButtonFind_Click(object sender, RoutedEventArgs e)
+		{
+			string city = "", hour_a = "", hour_b = "";
+
+			if (CityBox.SelectedIndex > -1)
+			{
+				city = CityBox.SelectedItem.ToString();
+			}
+
+			if (HoursBoxA.SelectedIndex > -1)
+			{
+				hour_a = HoursBoxA.SelectedItem.ToString();
+			}
+
+			if (HoursBoxB.SelectedIndex > -1)
+			{
+				hour_b = HoursBoxB.SelectedItem.ToString();
+			}
+
+			using (SqlConnection conn = DBUtils.GetDBConnection())
+			{
+				try
+				{
+					conn.Open();
+					DBUtils.QueryTrip_Filters(conn, ref dt, city, hour_a, hour_b);
+					conn.Close();
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show(ex.Message);
+				}
+			}
+			TripsInfoGrid.ItemsSource = dt.DefaultView;
+		}
+
+		private void Window_Loaded(object sender, RoutedEventArgs e)
+		{
+			//Подключение к БД
+
+			using (SqlConnection conn = DBUtils.GetDBConnection())
+			{
+				try
+				{
+					conn.Open();
+					conn.Close();
+				}
+				catch (Exception)
+				{
+					MessageBox.Show("На жаль доступ до даних призупинено,\n зверніться до адміністратора", "Помилка доступу до даних", MessageBoxButton.OK, MessageBoxImage.Error);
+					AuthWindow authWin = new AuthWindow();
+					this.Close();
+					authWin.Show();
+				}
+			}
+		}
+
+		private void Button_Click_1(object sender, RoutedEventArgs e)
+		{
+			AddWindow addWin = new AddWindow();
+			addWin.Show();
+		}
+
+		private void Button_Click_2(object sender, RoutedEventArgs e)
+		{
+			EditWindow editWin = new EditWindow();
+			editWin.Show();
+		}
+
+		private void Button_Click_3(object sender, RoutedEventArgs e)
+		{
+			DeleteWindow dltWin = new DeleteWindow();
+			dltWin.Show();
+		}
+
+		private void Button_Click_4(object sender, RoutedEventArgs e)
+		{
+			TicketWindow tickWin = new TicketWindow();
+			tickWin.Show();
+		}
+
+		private void Button_Click_5(object sender, RoutedEventArgs e)
+		{
+
 		}
 	}
 }
