@@ -198,7 +198,6 @@ namespace Tr_Dispetcher
 
 		private void ButtonSave_Click_5(object sender, RoutedEventArgs e)
 		{
-			
 		}
 	}
 }
