@@ -169,25 +169,25 @@ namespace Tr_Dispetcher
 		private void Button_Click_1(object sender, RoutedEventArgs e)
 		{
 			AddWindow addWin = new AddWindow();
-			addWin.Show();
+			addWin.ShowDialog();
 		}
 
 		private void Button_Click_2(object sender, RoutedEventArgs e)
 		{
 			EditWindow editWin = new EditWindow();
-			editWin.Show();
+			editWin.ShowDialog();
 		}
 
 		private void Button_Click_3(object sender, RoutedEventArgs e)
 		{
 			DeleteWindow dltWin = new DeleteWindow();
-			dltWin.Show();
+			dltWin.ShowDialog();
 		}
 
 		private void Button_Click_4(object sender, RoutedEventArgs e)
 		{
 			TicketWindow tickWin = new TicketWindow();
-			tickWin.Show();
+			tickWin.ShowDialog();
 		}
 
 		private void Button_Click_5(object sender, RoutedEventArgs e)
