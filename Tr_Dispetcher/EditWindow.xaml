@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="EditWindow" Height="160" Width="695" Background="LightBlue" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Margin="0,0,0,309">
-        <Label Content="Номер &#xD;&#xA;потяга" HorizontalAlignment="Left" Margin="19,16,0,-59" Width="47" Background="#FFB8B8B8" HorizontalContentAlignment="Stretch"/>
-        <Label Content="Станція призначення" HorizontalAlignment="Left" Margin="92,0,0,-59" Width="126" Background="#FFB8B8B8" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" VerticalAlignment="Bottom" Height="43"/>
-        <Label Content="Час відправлення" HorizontalAlignment="Left" Margin="244,0,0,-59" Width="126" Background="#FFB8B8B8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom" Height="43"/>
-        <Label Content="Час у дорозі" HorizontalAlignment="Left" Margin="386,0,0,-59" Width="126" Background="#FFB8B8B8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom" Height="43"/>
-        <Label Content="Кількість квитків" HorizontalAlignment="Left" Margin="526,0,0,-59" Width="126" Background="#FFB8B8B8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom" Height="43"/>
+        <Label Content="Номер &#xD;&#xA;потяга" HorizontalAlignment="Left" Margin="19,16,0,-59" Width="47" Background="#FFD6D0D0" HorizontalContentAlignment="Stretch"/>
+        <Label Content="Станція призначення" HorizontalAlignment="Left" Margin="92,0,0,-59" Width="126" Background="#FFD6D0D0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" VerticalAlignment="Bottom" Height="43"/>
+        <Label Content="Час відправлення" HorizontalAlignment="Left" Margin="244,0,0,-59" Width="126" Background="#FFD6D0D0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom" Height="43"/>
+        <Label Content="Час у дорозі" HorizontalAlignment="Left" Margin="386,0,0,-59" Width="126" Background="#FFD6D0D0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom" Height="43"/>
+        <Label Content="Кількість квитків" HorizontalAlignment="Left" Margin="526,0,0,-59" Width="126" Background="#FFD6D0D0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom" Height="43"/>
         <Button Content="Зберегти" Margin="544,90,0,-114" HorizontalAlignment="Left" Width="108" Click="Button_Click"/>
         <TextBox x:Name="number" HorizontalAlignment="Left" Margin="19,62,0,-80" Text="000" TextWrapping="Wrap" Width="47"/>
         <TextBox x:Name="station" HorizontalAlignment="Left" Margin="92,62,0,-80" TextWrapping="Wrap" Width="126" Tag="" TextChanged="TextBox_TextChanged" Text="Kyiv"/>

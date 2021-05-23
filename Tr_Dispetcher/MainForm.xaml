@@ -1030,9 +1030,7 @@
         <Button x:Name="ButtonDelete" Margin="565,24,175,504" Click="ButtonDelete_Click_3" Cursor="Hand" Style="{DynamicResource ButtonStyleSave}">
             <Image Source="/Tr_Dispetcher;component/Resources/delete.png" Stretch="Uniform"/>
         </Button>
-        <Button x:Name="ButtonTickets" Margin="660,24,80,504" Click="ButtonTicket_Click_4" Style="{DynamicResource ButtonStyleSave}">
-            <Image Source="/Tr_Dispetcher;component/Resources/ticket.png" Stretch="Uniform"/>
-        </Button>
+        
         <Button Style="{DynamicResource ButtonStyleSave}" x:Name="ButtonSave" Margin="720,24,20,504" Click="ButtonSave_Click_5" Cursor="Hand">
             <Image Source="/Tr_Dispetcher;component/Resources/save.png" Stretch="Uniform"/>
         </Button>

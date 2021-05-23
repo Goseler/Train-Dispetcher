@@ -189,12 +189,6 @@ namespace Tr_Dispetcher
 			Update_Data();
 		}
 
-		private void ButtonTicket_Click_4(object sender, RoutedEventArgs e)
-		{
-			TicketWindow tickWin = new TicketWindow();
-			tickWin.ShowDialog();
-			Update_Data();
-		}
 
 		private void ButtonSave_Click_5(object sender, RoutedEventArgs e)
 		{
