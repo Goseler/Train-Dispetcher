@@ -184,7 +184,19 @@ namespace Tr_Dispetcher
 			return rowCount;
 		}
 
+		public static int DeleteDataTrip(SqlConnection conn, ushort number)
+		{
+			string sql = "DELETE FRON trips_info WHERE number=@number";
 
+			SqlCommand cmd = new SqlCommand();
+			cmd.Connection = conn;
+			cmd.CommandText = sql;
+
+			cmd.Parameters.Add("@number", SqlDbType.SmallInt).Value = number;
+
+			int rowCount = cmd.ExecuteNonQuery();
+			return rowCount;
+		}
 	}
 }
 
