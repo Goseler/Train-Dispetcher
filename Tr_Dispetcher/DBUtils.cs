@@ -151,16 +151,16 @@ namespace Tr_Dispetcher
 
 		public static int InsertDataTrip(SqlConnection conn, ClassTrip ins_trip)
 		{
-			string sql = $"INSERT INTO trips_info(number, station, dept_time, travel_time, tickets) VALUES (@number, @station, @dept_time, @travel_time, @tickets)";
+			string sql = $"INSERT INTO trips_info(number, station, dept_time, travel_time, tickets) VALUES (@number_param, @station_param, @dept_time_param, @travel_time_param, @tickets_param)";
 			
 			SqlCommand cmd = conn.CreateCommand();
 			cmd.CommandText = sql;
 
-			cmd.Parameters.Add("@number", SqlDbType.SmallInt).Value = ins_trip.Number;
-			cmd.Parameters.Add("@station", SqlDbType.NVarChar).Value = ins_trip.Station;
-			cmd.Parameters.Add("@dept_time", SqlDbType.Time).Value = ins_trip.Dept_time;
-			cmd.Parameters.Add("@travel_time", SqlDbType.Time).Value = ins_trip.Travel_time;
-			cmd.Parameters.Add("@number", SqlDbType.Int).Value = ins_trip.Tickets;
+			cmd.Parameters.Add("@number_param", SqlDbType.SmallInt).Value = ins_trip.Number;
+			cmd.Parameters.Add("@station_param", SqlDbType.NVarChar).Value = ins_trip.Station;
+			cmd.Parameters.Add("@dept_time_param", SqlDbType.Time).Value = ins_trip.Dept_time;
+			cmd.Parameters.Add("@travel_time_param", SqlDbType.Time).Value = ins_trip.Travel_time;
+			cmd.Parameters.Add("@number_param", SqlDbType.Int).Value = ins_trip.Tickets;
 
 			int rowCount = cmd.ExecuteNonQuery();
 			return rowCount;
@@ -168,17 +168,17 @@ namespace Tr_Dispetcher
 
 		public static int UpdateDataTrip(SqlConnection conn, ClassTrip ins_trip)
 		{
-			string sql = $"UPDATE trips_info SET station=@station, dept_time=@dept_time, travel_time=@travel_time, tickets=@tickets WHERE number=@number";
+			string sql = $"UPDATE trips_info SET station=@station_param, dept_time=@dept_time_param, travel_time=@travel_time_param, tickets=@tickets_param WHERE number=@number_param";
 
 			SqlCommand cmd = new SqlCommand();
 			cmd.Connection = conn;
 			cmd.CommandText = sql;
 
-			cmd.Parameters.Add("@number", SqlDbType.SmallInt).Value = ins_trip.Number;
-			cmd.Parameters.Add("@station", SqlDbType.NVarChar).Value = ins_trip.Station;
-			cmd.Parameters.Add("@dept_time", SqlDbType.Time).Value = ins_trip.Dept_time;
-			cmd.Parameters.Add("@travel_time", SqlDbType.Time).Value = ins_trip.Travel_time;
-			cmd.Parameters.Add("@number", SqlDbType.Int).Value = ins_trip.Tickets;
+			cmd.Parameters.Add("@number_param", SqlDbType.SmallInt).Value = ins_trip.Number;
+			cmd.Parameters.Add("@station_param", SqlDbType.NVarChar).Value = ins_trip.Station;
+			cmd.Parameters.Add("@dept_time_param", SqlDbType.Time).Value = ins_trip.Dept_time;
+			cmd.Parameters.Add("@travel_time_param", SqlDbType.Time).Value = ins_trip.Travel_time;
+			cmd.Parameters.Add("@number_param", SqlDbType.Int).Value = ins_trip.Tickets;
 
 			int rowCount = cmd.ExecuteNonQuery();
 			return rowCount;
@@ -186,13 +186,13 @@ namespace Tr_Dispetcher
 
 		public static int DeleteDataTrip(SqlConnection conn, ushort number)
 		{
-			string sql = "DELETE FRON trips_info WHERE number=@number";
+			string sql = "DELETE FRON trips_info WHERE number=@number_param";
 
 			SqlCommand cmd = new SqlCommand();
 			cmd.Connection = conn;
 			cmd.CommandText = sql;
 
-			cmd.Parameters.Add("@number", SqlDbType.SmallInt).Value = number;
+			cmd.Parameters.Add("@number_param", SqlDbType.SmallInt).Value = number;
 
 			int rowCount = cmd.ExecuteNonQuery();
 			return rowCount;
