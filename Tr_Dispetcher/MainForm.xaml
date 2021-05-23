@@ -965,7 +965,7 @@
     </Window.Resources>
     <Grid>
         <DataGrid x:Name="TripsInfoGrid" Margin="20,90,20,20" AutoGenerateColumns="True" IsReadOnly="True" ColumnWidth="*" />
-        <ComboBox Style="{DynamicResource ComboBoxStyle1}" x:Name="CityBox" Margin="20,20,610,500" Padding="10,9,0,0" MaxDropDownHeight="110" FontSize="16"/>
+        <ComboBox Style="{DynamicResource ComboBoxStyle1}" x:Name="CityBox" Margin="20,20,610,500" Padding="10,9,0,0" MaxDropDownHeight="170" FontSize="16"/>
         <Button x:Name="ButtonEdit" Content="edit" HorizontalAlignment="Left" Margin="546,38,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.37,0.052" Click="Button_Click_2"/>
         <Button x:Name="ButtonAdd" Content="add" HorizontalAlignment="Left" Margin="575,38,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Click="Button_Click_1"/>
         <Button x:Name="ButtonDelete" Content="delete" HorizontalAlignment="Left" Margin="623,38,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Click="Button_Click_3"/>

@@ -130,7 +130,7 @@ namespace Tr_Dispetcher
 			cities.Clear();
 			cities.Add("");
 
-			string sql = "select station from trips_info";
+			string sql = "select distinct station from trips_info order by station asc";
 
 			SqlCommand cmd = new SqlCommand(sql, conn);
 
