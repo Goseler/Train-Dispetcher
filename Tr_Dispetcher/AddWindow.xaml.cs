@@ -37,7 +37,7 @@ namespace Tr_Dispetcher
             int tick = Convert.ToInt32(tickets.Text);
             try
             {
-                if (numb <= 0 || Convert.ToInt32(arr[0]) < 0 || Convert.ToInt32(arr[0]) > 23 || tick < 0 || Convert.ToInt32(mas[0]) <= 0 || Convert.ToInt32(mas[1]) <= 0 || Convert.ToInt32(arr[1]) < 0 || Convert.ToInt32(arr[1]) > 23)
+                if (numb <= 0 || Convert.ToInt32(arr[0]) < 0 || Convert.ToInt32(arr[0]) > 23 || tick < 0 || Convert.ToInt32(mas[0]) < 0 || Convert.ToInt32(mas[1]) < 0 || Convert.ToInt32(arr[1]) < 0 || Convert.ToInt32(arr[1]) > 23)
                     MessageBox.Show("Номер повинен бути більшим за нуль\nЧас відправлення та прибуття повинні бути більшими за нуль та менші 24\nКількість квитків повинна бути додатньою\nЧас в дорозі повинен бути додатнім \nВведіть коректні дані", "Некоректні вхідні дані", MessageBoxButton.OK, MessageBoxImage.Warning);
                 else
                 {
@@ -70,12 +70,22 @@ namespace Tr_Dispetcher
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ReadData(number.Text, station.Text, dept_time.Text, trav_time.Text, tickets.Text);
+            number.Text = "000";
+            station.Text = "Kiyv";
+            dept_time.Text = "00:00";
+            trav_time.Text = "00:00";
+            tickets.Text = "0";
+            this.Close();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             ReadData(number.Text, station.Text, dept_time.Text, trav_time.Text, tickets.Text);
-            this.Show();
+            number.Text = "000";
+            station.Text = "Kyiv";
+            dept_time.Text = "00:00";
+            trav_time.Text = "00:00";
+            tickets.Text = "0";
         }
     }
 }

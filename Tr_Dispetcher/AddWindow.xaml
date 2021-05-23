@@ -14,7 +14,7 @@
         <Label Content="Кількість квитків" HorizontalAlignment="Left" Margin="526,0,0,101" Width="126" Background="#FFB8B8B8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom" Height="43"/>
         <Button x:Name="ButtonAdd" Content="Додати" Margin="435,90,0,46" HorizontalAlignment="Left" Width="108" Click="Button_Click"/>
         <TextBox x:Name="number" HorizontalAlignment="Left" Margin="19,64,0,0" Text="000" TextWrapping="Wrap" VerticalAlignment="Top" Width="47" d:LayoutOverrides="Height"/>
-        <TextBox x:Name="station" HorizontalAlignment="Left" Margin="92,64,0,0" Text="Київ-Пас" TextWrapping="Wrap" VerticalAlignment="Top" Width="126" d:LayoutOverrides="Height"/>
+        <TextBox x:Name="station" HorizontalAlignment="Left" Margin="92,64,0,0" Text="Kyiv" TextWrapping="Wrap" VerticalAlignment="Top" Width="126" d:LayoutOverrides="Height"/>
         <TextBox x:Name="dept_time" HorizontalAlignment="Left" Margin="244,64,0,0" Text="00:00" TextWrapping="Wrap" VerticalAlignment="Top" Width="126" d:LayoutOverrides="Height"/>
         <TextBox x:Name="trav_time" HorizontalAlignment="Left" Margin="386,64,0,0" Text="00:00" TextWrapping="Wrap" VerticalAlignment="Top" Width="126" d:LayoutOverrides="Height"/>
         <TextBox x:Name="tickets" HorizontalAlignment="Left" Margin="526,64,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="126" d:LayoutOverrides="Height"/>
