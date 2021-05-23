@@ -14,10 +14,7 @@ namespace Tr_Dispetcher
 		//Данные нужные для поключения к БД
 		public static SqlConnection GetDBConnection()
 		{
-			// Data Source = "tcp:DESKTOP-BQA1TPO\SQLEXPRESS, 49172"; Initial Catalog = dispetcher_db; User ID = remote_user;Password = ru
-			// Data Source = "tcp:DESKTOP-BQA1TPO\SQLEXPRESS, 49172";Initial Catalog = dispetcher_db;User ID = sa;Password = sa
-			// Data Source = trdispetcher.mssql.somee.com;Initial Catalog = trdispetcher;User ID = goseler_SQLLogin_1;Password = 2yqshnjdhq
-
+			// Данные для подключения
 			string server = "trdispetcher.mssql.somee.com";
 			string catalog = "trdispetcher";
 			string user_id = "goseler_SQLLogin_1";
@@ -88,7 +85,6 @@ namespace Tr_Dispetcher
 			}
 			else
 			{
-				//ql = $"select number, station, dept_time, travel_time, tickets from trips_info where station = '{selected_city}' and dept_time >= '{selected_hour_a}:00' and dept_time <= '{selected_hour_b}:00'";
 				if (selected_hour_b == "" || selected_hour_b == "00")
 				{
 					sql = $"select number, station, dept_time, travel_time, tickets from trips_info where station = '{selected_city}' and dept_time >= '{selected_hour_a}:00' and dept_time <= '23:59'";
