@@ -35,28 +35,37 @@ namespace Tr_Dispetcher
             string ttime = trav_time.Text;
             string[] mas = ttime.Split(':');
             int tick = Convert.ToInt32(tickets.Text);
-            if (numb <= 0 || Convert.ToInt32(arr[0]) <= 0 || Convert.ToInt32(arr[0]) > 23 || tick < 0 || Convert.ToInt32(mas[0]) <= 0 || Convert.ToInt32(mas[1]) <= 0 || Convert.ToInt32(arr[1]) <= 0 || Convert.ToInt32(arr[1]) > 23)
-                MessageBox.Show("Номер повинен бути більшим за нуль\nЧас відправлення та прибуття повинні бути більшими за нуль та менші 24\nКількість квитків повинна бути додатньою\nЧас в дорозі повинен бути додатнім \nВведіть коректні дані", "Некоректні вхідні дані", MessageBoxButton.OK, MessageBoxImage.Warning);
-            else
+            try
             {
-                TimeSpan time_of_dept = Convert.ToDateTime(dept_time).TimeOfDay;
-                TimeSpan time_of_travel = Convert.ToDateTime(trav_time).TimeOfDay;
-                ClassTrip trip_to_edit = new ClassTrip(Convert.ToUInt16(numb), stat, time_of_dept, time_of_travel, tick);
-                using (SqlConnection conn = DBUtils.GetDBConnection())
+                if (numb <= 0 || Convert.ToInt32(arr[0]) < 0 || Convert.ToInt32(arr[0]) > 23 || tick < 0 || Convert.ToInt32(mas[0]) <= 0 || Convert.ToInt32(mas[1]) <= 0 || Convert.ToInt32(arr[1]) < 0 || Convert.ToInt32(arr[1]) > 23)
+                    MessageBox.Show("Номер повинен бути більшим за нуль\nЧас відправлення та прибуття повинні бути більшими за нуль та менші 24\nКількість квитків повинна бути додатньою\nЧас в дорозі повинен бути додатнім \nВведіть коректні дані", "Некоректні вхідні дані", MessageBoxButton.OK, MessageBoxImage.Warning);
+                else
                 {
-                    try
+                    TimeSpan time_of_dept = Convert.ToDateTime(dept_time).TimeOfDay;
+                    TimeSpan time_of_travel = Convert.ToDateTime(travel_time).TimeOfDay;
+                    ClassTrip trip = new ClassTrip(Convert.ToUInt16(numb), stat, time_of_dept, time_of_travel, tick);
+                    using (SqlConnection conn = DBUtils.GetDBConnection())
                     {
-                        conn.Open();
-                        int k = DBUtils;
-                        //if (k == 1) ;
-                        conn.Close();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
+                        try
+                        {
+                            conn.Open();
+                            int k = DBUtils.InsertDataTrip(conn, trip);
+                            if (k == 0)
+                                MessageBox.Show("Такий рейс вже присутній в списку");
+                            conn.Close();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -65,7 +74,8 @@ namespace Tr_Dispetcher
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            ReadData(number.Text, station.Text, dept_time.Text, trav_time.Text, tickets.Text);
+            this.Show();
         }
     }
 }
