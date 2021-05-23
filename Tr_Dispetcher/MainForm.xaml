@@ -1022,10 +1022,10 @@
         <DataGrid x:Name="TripsInfoGrid" Margin="20,90,20,20" AutoGenerateColumns="True" IsReadOnly="True" ColumnWidth="*" />
         <ComboBox Style="{DynamicResource ComboBoxStyle1}" x:Name="CityBox" Margin="20,20,610,500" Padding="10,9,0,0" MaxDropDownHeight="170" FontSize="16" Cursor="Hand"/>
         <Button x:Name="ButtonEdit" Margin="445,24,295,504" Click="Button_Click_2" Cursor="Hand" Style="{DynamicResource ButtonStyleSave}">
-            <Image Source="/Tr_Dispetcher;component/Resources/add.png" Stretch="Uniform"/>
+            <Image Source="/Tr_Dispetcher;component/Resources/edit.png" Stretch="Uniform"/>
         </Button>
         <Button x:Name="ButtonAdd" Margin="505,24,235,504" Click="Button_Click_1" Cursor="Hand" Style="{DynamicResource ButtonStyleSave}">
-            <Image Source="/Tr_Dispetcher;component/Resources/edit.png" Stretch="Uniform"/>
+            <Image Source="/Tr_Dispetcher;component/Resources/add.png" Stretch="Uniform"/>
         </Button>
         <Button x:Name="ButtonDelete" Margin="565,24,175,504" Click="Button_Click_3" Cursor="Hand" Style="{DynamicResource ButtonStyleSave}">
             <Image Source="/Tr_Dispetcher;component/Resources/delete.png" Stretch="Uniform"/>
