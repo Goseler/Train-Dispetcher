@@ -971,7 +971,7 @@
         <Button x:Name="ButtonDelete" Content="delete" HorizontalAlignment="Left" Margin="623,38,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Click="Button_Click_3"/>
         <Button x:Name="ButtonTickets" Content="tickets" HorizontalAlignment="Left" Margin="687,38,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Click="Button_Click_4"/>
         <Button x:Name="ButtonSave" Content="save" HorizontalAlignment="Left" Margin="738,38,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.947,0.603" Click="Button_Click_5"/>
-        <Rectangle Margin="190,20,590,500" Stroke="Black" Fill="Black" StrokeThickness="10"/>
+        <Rectangle Margin="190,20,590,500" Stroke="Black" Fill="Black" StrokeThickness="2" RadiusX="2" RadiusY="2"/>
         <ComboBox Style="{DynamicResource ComboBoxMinutesStyle}" x:Name="HoursBoxB" Margin="280,21,450,500" MaxDropDownHeight="170" FontSize="16" Padding="10,9,0,0"/>
         <ComboBox Style="{DynamicResource ComboBoxMinutesStyle}" x:Name="HoursBoxA" Margin="210,21,520,500" MaxDropDownHeight="170" FontSize="16" Padding="10,9,0,0"/>
         <Button Style="{DynamicResource ButtonStyleFind}" x:Name="ButtonFind" Margin="350,28,400,508" Click="ButtonFind_Click">
