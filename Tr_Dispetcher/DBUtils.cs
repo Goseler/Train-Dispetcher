@@ -73,7 +73,7 @@ namespace Tr_Dispetcher
 
 			if (selected_city == "")
 			{
-				
+
 				if (selected_hour_b == "" || selected_hour_b == "00")
 				{
 					sql = $"select number, station, dept_time, travel_time, tickets from trips_info where dept_time >= '{selected_hour_a}:00' and dept_time <= '23:59'";
@@ -148,5 +148,24 @@ namespace Tr_Dispetcher
 			}
 
 		}
+
+		public static int InsertDataTrip(SqlConnection conn, ClassTrip ins_trip) 
+		{
+			string sql = $"insert into trips_info(number, station, dept_time, travel_time, tickets) values (@number, @station, @dept_time, @travel_time, @tickets)";
+			
+			SqlCommand cmd = conn.CreateCommand();
+			cmd.CommandText = sql;
+
+			cmd.Parameters.Add("@number", SqlDbType.SmallInt).Value = ins_trip.Number;
+			cmd.Parameters.Add("@station", SqlDbType.NVarChar).Value = ins_trip.Station;
+			cmd.Parameters.Add("@dept_time", SqlDbType.Time).Value = ins_trip.Dept_time;
+			cmd.Parameters.Add("@travel_time", SqlDbType.Time).Value = ins_trip.Travel_time;
+			cmd.Parameters.Add("@number", SqlDbType.Int).Value = ins_trip.Tickets;
+
+			int rowCount = cmd.ExecuteNonQuery();
+			return rowCount;
+		}
+		
 	}
 }
+

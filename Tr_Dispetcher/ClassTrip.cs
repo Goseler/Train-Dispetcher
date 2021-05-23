@@ -8,11 +8,11 @@ namespace Tr_Dispetcher
 {
 	class ClassTrip
 	{
-		private ushort Number { get; set; }
-		private string Station { get; set; }
-		private TimeSpan Dept_time { get; set; }
-		private TimeSpan Travel_time { get; set; }
-		private int Tickets { get; set; }
+		public ushort Number { get; private set; }
+		public string Station { get; private set; }
+		public TimeSpan Dept_time { get; private set; }
+		public TimeSpan Travel_time { get; private set; }
+		public int Tickets { get; private set; }
 
 		public ClassTrip(ushort number, string station, TimeSpan dept_time, TimeSpan travel_time, int tickets)
 		{
