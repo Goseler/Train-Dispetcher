@@ -48,6 +48,8 @@ namespace Tr_Dispetcher
 			Update_Data();
 
 			// Инициализация комбо-боксов с часами и минутами
+			HoursBoxA.Items.Add("");
+			HoursBoxB.Items.Add("");
 			for (int i = 0; i < 24; i++)
 			{
 				if (i > 9)

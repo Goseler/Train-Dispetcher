@@ -128,6 +128,7 @@ namespace Tr_Dispetcher
 		public static void QueryCity(SqlConnection conn, ref List<string> cities)
 		{
 			cities.Clear();
+			cities.Add("");
 
 			string sql = "select station from trips_info";
 
