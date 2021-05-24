@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Microsoft.WindowsAPICodePack.Dialogs;
+using Spire.Doc;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows;
-using GemBox.Document;
-using GemBox.Document.Tables;
 
 namespace Tr_Dispetcher
 {
@@ -192,6 +192,38 @@ namespace Tr_Dispetcher
 
 		private void ButtonSave_Click_5(object sender, RoutedEventArgs e)
 		{
+			try
+			{
+				CommonSaveFileDialog dialog = new();
+				dialog.Filters.Add(new CommonFileDialogFilter("Word Documents", "*.doc"));
+				dialog.DefaultFileName = "Tr_Trips_List";
+				dialog.DefaultExtension = "doc";
+				dialog.InitialDirectory = "";
+
+				if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+				{
+					string fullPath = dialog.FileName;
+					Spire.DataExport.RTF.RTFExport rtfExport = new Spire.DataExport.RTF.RTFExport();
+					rtfExport.DataSource = Spire.DataExport.Common.ExportSource.DataTable;
+					rtfExport.DataTable = dt;
+					rtfExport.ActionAfterExport = Spire.DataExport.Common.ActionType.None;
+					rtfExport.FileName = fullPath;
+					rtfExport.SaveToFile();
+
+					/*Document doc = new Document(fullPath);
+					//doc.LoadFromFile(fullPath);
+					Section section = doc.Sections[0];
+					Table table = section.Tables[0] as Table;
+
+					table.AutoFit(AutoFitBehaviorType.AutoFitToWindow);
+					doc.SaveToFile(fullPath, FileFormat.Doc);*/
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+				MessageBox.Show(ex.StackTrace);
+			}
 		}
 	}
 }
