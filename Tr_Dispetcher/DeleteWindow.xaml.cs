@@ -39,11 +39,20 @@ namespace Tr_Dispetcher
                     try
                     {
                         conn.Open();
-                        int k = DBUtils.DeleteDataTrip(conn, numb);
-                        conn.Close();
-                        if(k == 0)
+                        int count = DBUtils.QueryTrip_Count(conn);
+                        if (count > 10)
                         {
-                            MessageBox.Show("Рейс з таким номером відсутній");
+                            int k = DBUtils.DeleteDataTrip(conn, numb);
+                            conn.Close();
+                            if (k == 0)
+                            {
+                                MessageBox.Show("Рейс з таким номером відсутній");
+                            }
+                        }
+                        else
+                        {
+                            conn.Close();
+                            MessageBox.Show("Кількість рейсів не може бути менше ніж 10");
                         }
                     }
                     catch (Exception ex)
