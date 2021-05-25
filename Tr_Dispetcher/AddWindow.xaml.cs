@@ -37,8 +37,8 @@ namespace Tr_Dispetcher
             int tick = Convert.ToInt32(tickets.Text);
             try
             {
-                if (numb <= 0 || Convert.ToInt32(arr[0]) < 0 || Convert.ToInt32(arr[0]) > 23 || tick < 0 || Convert.ToInt32(mas[0]) < 0 || Convert.ToInt32(mas[1]) < 0 || Convert.ToInt32(arr[1]) < 0 || Convert.ToInt32(arr[1]) > 59 || Convert.ToInt32(mas[1]) > 59)
-                    MessageBox.Show("Номер повинен бути більшим за нуль\nЧас відправлення та прибуття повинні бути більшими за нуль та менші 24\nКількість квитків повинна бути додатньою\nЧас в дорозі повинен бути додатнім \nВведіть коректні дані", "Некоректні вхідні дані", MessageBoxButton.OK, MessageBoxImage.Warning);
+                if (numb <= 0 || Convert.ToInt32(arr[0]) < 0 || Convert.ToInt32(arr[0]) > 23 || tick < 0 || Convert.ToInt32(mas[0]) < 0 || Convert.ToInt32(mas[0]) > 23 || Convert.ToInt32(mas[1]) < 0 || Convert.ToInt32(arr[1]) < 0 || Convert.ToInt32(arr[1]) > 59 || Convert.ToInt32(mas[1]) > 59)
+                    MessageBox.Show("Номер повинен бути більшим за нуль\nЧас відправлення та прибуття повинні бути у такому форматі hh:mm(години від 0 до 23, хвилини від 0 до 59)\nКількість квитків повинна бути додатньою\nЧас в дорозі повинен бути додатнім \nВведіть коректні дані", "Некоректні вхідні дані", MessageBoxButton.OK, MessageBoxImage.Warning);
                 else
                 {
                     TimeSpan time_of_dept = Convert.ToDateTime(dept_time).TimeOfDay;
