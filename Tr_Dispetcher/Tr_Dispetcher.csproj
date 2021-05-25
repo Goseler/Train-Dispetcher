@@ -23,11 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ClosedXML" Version="0.95.4" />
-    <PackageReference Include="DocX" Version="1.8.0" />
-    <PackageReference Include="Exporter" Version="1.0.2" />
-    <PackageReference Include="Microsoft.Office.Interop.Excel" Version="15.0.4795.1000" />
-    <PackageReference Include="Microsoft.Office.Interop.Word" Version="15.0.4797.1003" />
     <PackageReference Include="Spire.DataExport" Version="3.5.10" />
     <PackageReference Include="Spire.Doc" Version="9.4.18" />
     <PackageReference Include="Spire.Office" Version="6.4.4" />
