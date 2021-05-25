@@ -197,6 +197,18 @@ namespace Tr_Dispetcher
 			int rowCount = cmd.ExecuteNonQuery();
 			return rowCount;
 		}
+
+		public static int QueryTrip_Count(SqlConnection conn)
+		{
+			string sql = "SELECT COUNT(*) FROM trips_info";
+
+			SqlCommand cmd = new SqlCommand();
+			cmd.Connection = conn;
+			cmd.CommandText = sql;
+
+			int count = (int)cmd.ExecuteScalar();
+			return count;
+		}
 	}
 }
 
