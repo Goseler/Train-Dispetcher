@@ -28,22 +28,22 @@ namespace Tr_Dispetcher
 			_isAdmin = IsAdmin;
 			if (_isAdmin)
 			{
-				this.Title = "Train Dispetcher - Робітник";
+				this.Title = "Train Dispetcher - Worker";
 			}
 			else
 			{
-				this.Title = "Train Dispetcher - Гість";
+				this.Title = "Train Dispetcher - Guest";
 				ButtonEdit.Visibility = Visibility.Hidden;
 				ButtonAdd.Visibility = Visibility.Hidden;
 				ButtonDelete.Visibility = Visibility.Hidden;
 			}
 
 			// Инициализация дататейбл
-			dt.Columns.Add("Номер потягу", typeof(UInt16));
-			dt.Columns.Add("Станція призначення", typeof(String));
-			dt.Columns.Add("Час відправлення", typeof(TimeSpan));
-			dt.Columns.Add("Час у дорозі", typeof(TimeSpan));
-			dt.Columns.Add("К-ть квитків", typeof(Int32));
+			dt.Columns.Add("Train number", typeof(UInt16));
+			dt.Columns.Add("Destination station", typeof(String));
+			dt.Columns.Add("Departure time", typeof(TimeSpan));
+			dt.Columns.Add("Travel time", typeof(TimeSpan));
+			dt.Columns.Add("Number of tickets", typeof(Int32));
 
 
 			// Обновление данніх
@@ -160,7 +160,7 @@ namespace Tr_Dispetcher
 				}
 				catch (Exception)
 				{
-					MessageBox.Show("На жаль доступ до даних призупинено,\n зверніться до адміністратора", "Помилка доступу до даних", MessageBoxButton.OK, MessageBoxImage.Error);
+					MessageBox.Show("Sorry, data access has been suspended.\nСontact the administrator", "Data access error", MessageBoxButton.OK, MessageBoxImage.Error);
 					AuthWindow authWin = new AuthWindow();
 					this.Close();
 					authWin.Show();
@@ -210,13 +210,13 @@ namespace Tr_Dispetcher
 					rtfExport.FileName = fullPath;
 					rtfExport.SaveToFile();
 
-					/*Document doc = new Document(fullPath);
+					Document doc = new Document(fullPath);
 					//doc.LoadFromFile(fullPath);
 					Section section = doc.Sections[0];
 					Table table = section.Tables[0] as Table;
 
 					table.AutoFit(AutoFitBehaviorType.AutoFitToWindow);
-					doc.SaveToFile(fullPath, FileFormat.Doc);*/
+					doc.SaveToFile(fullPath, FileFormat.Doc);
 				}
 			}
 			catch (Exception ex)
