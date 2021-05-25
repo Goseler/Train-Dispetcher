@@ -15,19 +15,13 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_22F85E64F83E42C79D2CF4E431215CBF"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_45AC4A3956234BCC9EE3853FEECAAA52"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_EE54CC9512294C77979CBB6DB7EAF702"
+        "MsmKey" = "8:_6C0428CCD5434D5E95316FD7BAEAE116"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -88,6 +82,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -120,26 +122,6 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_22F85E64F83E42C79D2CF4E431215CBF"
-            {
-            "SourcePath" = "8:..\\Tr_Dispetcher\\bin\\Debug\\net5.0-windows\\Tr_Dispetcher.exe"
-            "TargetName" = "8:Tr_Dispetcher.exe"
-            "Tag" = "8:"
-            "Folder" = "8:_AA1D30CC7E174D1086EEA71729356678"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_45AC4A3956234BCC9EE3853FEECAAA52"
             {
             "SourcePath" = "8:..\\Tr_Dispetcher\\icons\\icon.ico"
@@ -228,7 +210,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Train Dispetcher"
         "ProductCode" = "8:{DB3D35BC-038B-4843-832F-15A4D8EB5F62}"
-        "PackageCode" = "8:{2FDDCF66-0B1C-436C-847B-EA76D542E053}"
+        "PackageCode" = "8:{E1772235-4C22-4D8C-902D-D549EEC07712}"
         "UpgradeCode" = "8:{7EB6FF39-F286-4498-BA0D-B2E4151B1ADC}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -348,7 +330,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_FACAA2DD3C2E430791EEBE5D29C84600"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_54686D796E084CACB764DEF8B5570236"
             {
             "Name" = "8:Train Dispetcher"
             "Arguments" = "8:"
@@ -356,7 +338,7 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_22F85E64F83E42C79D2CF4E431215CBF"
+            "Target" = "8:_6C0428CCD5434D5E95316FD7BAEAE116"
             "Folder" = "8:_218AE045C9EC471D8F9DE081C463A31A"
             "WorkingFolder" = "8:_AA1D30CC7E174D1086EEA71729356678"
             "Icon" = "8:_45AC4A3956234BCC9EE3853FEECAAA52"
@@ -761,9 +743,9 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_EE54CC9512294C77979CBB6DB7EAF702"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_6C0428CCD5434D5E95316FD7BAEAE116"
             {
-            "SourcePath" = "8:..\\Tr_Dispetcher\\obj\\Debug\\net5.0-windows\\Tr_Dispetcher.dll"
+            "SourcePath" = "8:..\\Tr_Dispetcher\\obj\\Debug\\net5.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_AA1D30CC7E174D1086EEA71729356678"
@@ -782,7 +764,7 @@
             "IsolateTo" = "8:"
             "ProjectOutputGroupRegister" = "3:1"
             "OutputConfiguration" = "8:"
-            "OutputGroupCanonicalName" = "8:Built"
+            "OutputGroupCanonicalName" = "8:PublishItems"
             "OutputProjectGuid" = "8:{539B1756-B5F2-433E-8D4C-A5A1E3B7ADA6}"
             "ShowKeyOutput" = "11:TRUE"
                 "ExcludeFilters"
