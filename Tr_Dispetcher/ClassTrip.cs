@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tr_Dispetcher
 {
-	class ClassTrip
+	public class ClassTrip
 	{
 		public ushort Number { get; private set; }
 		public string Station { get; private set; }

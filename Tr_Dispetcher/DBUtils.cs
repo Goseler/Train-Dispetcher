@@ -9,8 +9,12 @@ using System.Windows;
 
 namespace Tr_Dispetcher
 {
-	class DBUtils
+	public class DBUtils
 	{
+		public DBUtils()
+		{
+		}
+
 		//Данные нужные для поключения к БД
 		public static SqlConnection GetDBConnection()
 		{
@@ -166,7 +170,7 @@ namespace Tr_Dispetcher
 			return rowCount;
 		}
 
-		public static int UpdateDataTrip(SqlConnection conn, ClassTrip ins_trip)
+		public  static int UpdateDataTrip(SqlConnection conn, ClassTrip ins_trip)
 		{
 			string sql = $"UPDATE trips_info SET station=@station_param, dept_time=@dept_time_param, travel_time=@travel_time_param, tickets=@tickets_param WHERE number=@number_param";
 
